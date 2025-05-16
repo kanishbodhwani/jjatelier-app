@@ -1,42 +1,29 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import HeroSection from '../components/HeroSection';
 import ProductCard from '../components/ProductCard';
 import AppointmentForm from '../components/AppointmentForm';
+import { fetchProducts } from '../services/api';
 
-// Placeholder images - replace these with your actual image imports
 const heroImage = '/images/hero.jpg';
 const secondaryImage = '/images/secondary.jpg';
 const foundersImage = '/images/founders.png';
 
-// Sample product data
-const featuredProducts = [
-  {
-    id: '1',
-    title: 'Product 1',
-    image: '/images/p1.png',
-    brand: 'JJ Atelier'
-  },
-  {
-    id: '2',
-    title: 'Product 2',
-    image: '/images/p2.png',
-    brand: 'JJ Atelier'
-  },
-  {
-    id: '3',
-    title: 'Product 3',
-    image: '/images/p3.png',
-    brand: 'JJ Atelier'
-  },
-  {
-    id: '4',
-    title: 'Product 4',
-    image: '/images/p4.png',
-    brand: 'JJ Atelier'
-  }
-];
-
 const HomePage = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const loadProducts = async () => {
+      try {
+        const { data } = await fetchProducts();
+        setProducts(data);
+      } catch (error) {
+        console.error('Error loading products:', error);
+      }
+    };
+    loadProducts();
+  }, []);
+
   return (
     <div>
       {/* Hero Section */}
@@ -82,8 +69,8 @@ const HomePage = () => {
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {featuredProducts.map(product => (
-              <ProductCard _id={product.id} key={product.id} {...product} />
+            {products.map(product => (
+              <ProductCard key={product._id} _id={product._id} title={product.name} image={product.images[0]} brand={"JJ Atelier"} price={product.price} />
             ))}
           </div>
           
@@ -128,7 +115,7 @@ const HomePage = () => {
       </section>
       
       {/* Book an Appointment */}
-      <section className="py-16 bg-white border-t border-gray-100">
+      <section id="book-appointment" className="py-16 bg-white border-t border-gray-100">
         <div className="container-custom max-w-4xl">
           <div className="text-center mb-12">
             <h3 className="corsorant-infant-font font-color-light-black text-3xl mb-2 tracting-wider">Explore Our Bespoke Collection</h3>

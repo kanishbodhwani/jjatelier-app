@@ -102,7 +102,7 @@ const ContactUsPage = () => {
       </section>
       
       {/* Reach Out Form */}
-      <section className="py-16 bg-white border-t border-gray-100">
+      <section id="book-appointment" className="py-16 bg-white border-t border-gray-100">
         <div className="container-custom max-w-4xl">
           <div className="text-center mb-12">
             <h2 className="section-title">Reach Out To Us</h2>

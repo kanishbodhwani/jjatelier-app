@@ -14,6 +14,7 @@ const AdminPage = () => {
     name: '',
     price: 0,
     description: '',
+    subHeading: '',
     category: '',
     stock: 0,
     images: ['', '', '', '', '', ''],
@@ -52,6 +53,7 @@ const AdminPage = () => {
         name: '',
         price: 0,
         description: '',
+        subHeading: '',
         category: '',
         stock: 0,
         images: ['', '', '', '', '', ''],
@@ -114,6 +116,18 @@ const AdminPage = () => {
                   placeholder="Elegant Wedding Gown"
                   value={newProduct.name}
                   onChange={(e) => setNewProduct({...newProduct, name: e.target.value})}
+                  className="border-jj-cream/70 focus-visible:ring-jj-cream"
+                  required
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="subHeading" className="text-jj-brown">Sub Heading</Label>
+                <Input
+                  id="subHeading"
+                  placeholder="Elegant Wedding Gown"
+                  value={newProduct.subHeading}
+                  onChange={(e) => setNewProduct({...newProduct, subHeading: e.target.value})}
                   className="border-jj-cream/70 focus-visible:ring-jj-cream"
                   required
                 />

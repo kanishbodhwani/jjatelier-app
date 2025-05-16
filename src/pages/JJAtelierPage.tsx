@@ -7,58 +7,6 @@ import AppointmentForm from '../components/AppointmentForm';
 // Placeholder images - replace with actual images
 const heroImage = '/images/hero-jj.jpg';
 
-// Sample product data
-const products = [
-  {
-    id: '1',
-    title: 'Product 1',
-    image: '/images/p1-jj.png',
-    brand: 'JJ Atelier'
-  },
-  {
-    id: '2',
-    title: 'Product 2',
-    image: '/images/p1-jj.png',
-    brand: 'JJ Atelier'
-  },
-  {
-    id: '3',
-    title: 'Product 3',
-    image: '/images/p1-jj.png',
-    brand: 'JJ Atelier'
-  },
-  {
-    id: '4',
-    title: 'Product 4',
-    image: '/images/p1-jj.png',
-    brand: 'JJ Atelier'
-  },
-  {
-    id: '5',
-    title: 'Product 5',
-    image: '/images/p1-jj.png',
-    brand: 'JJ Atelier'
-  },
-  {
-    id: '6',
-    title: 'Product 6',
-    image: '/images/p1-jj.png',
-    brand: 'JJ Atelier'
-  },
-  {
-    id: '7',
-    title: 'Product 7',
-    image: '/images/p1-jj.png',
-    brand: 'JJ Atelier'
-  },
-  {
-    id: '8',
-    title: 'Product 8',
-    image: '/images/p1-jj.png',
-    brand: 'JJ Atelier'
-  }
-];
-
 const JJAtelierPage = () => {
   const [products, setProducts] = useState([]);
 
@@ -101,7 +49,7 @@ const JJAtelierPage = () => {
           <h2 className="section-title jj-section-title">Featured Collection by <b>JJ Atelier</b></h2>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {products.slice(0, 8).map(product => (
+            {products.map(product => (
               <ProductCard key={product._id} _id={product._id} title={product.name} image={product.images[0]} brand={"JJ Atelier"} price={product.price} />
             ))}
           </div>
@@ -115,7 +63,7 @@ const JJAtelierPage = () => {
       </section>
       
       {/* Book an Appointment */}
-      <section className="py-16 bg-white border-t border-gray-100">
+      <section id="book-appointment" className="py-16 bg-white border-t border-gray-100">
         <div className="container-custom max-w-4xl">
           <div className="text-center mb-12">
             <h3 className="corsorant-infant-font font-color-light-black text-3xl mb-2 tracting-wider">Explore Our Bespoke Collection</h3>

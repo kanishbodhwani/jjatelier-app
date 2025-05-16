@@ -116,24 +116,31 @@ const ProductPage = () => {
           </div>
 
           {/* Right - Info */}
-          <div>
-            <div className="mb-6">
-              <h2 className="cormorant-upright-font-light text-sm text-black">JJ Atelier</h2>
-              <h1 className="cormorant-upright-font-semibold text-2xl text-jj-darkbrown mt-1">{product.name}</h1>
-              {/* <p className="font-serif text-xl text-jj-brown mt-2">
-                ${product.price.toLocaleString()}
-              </p> */}
+          <div className="flex flex-col h-full">
+            <div className="flex-grow">
+              <div className="mb-6">
+                <h2 className="cormorant-upright-font-light text-sm text-black">{product.name}</h2>
+                <h1 className="cormorant-upright-font-semibold text-2xl text-jj-darkbrown mt-1">{product?.subHeading}</h1>
+              </div>
+              
+              <p className="cormorant-garamond-font-light text-black mb-8 text-xl">
+                All taxes included · Shipping calculated at checkout
+              </p>
+              
+              <div className="cormorant-garamond-font-light text-black mb-8 text-xl">
+                <p>{product.description}</p>
+              </div>
             </div>
-            
-            <p className="cormorant-garamond-font-light max-w-none text-black mb-8 text-xl">
-              All taxes included · Shipping calculated at checkout
-            </p>
-            
-            <div className="cormorant-garamond-font-light max-w-none text-black mb-8 text-xl">
-              <p>{product.description}</p>
+
+            {/* New text and button container */}
+            <div className="mt-auto">
+              <p className="cormorant-garamond-font-light text-black/70 text-xl mb-4">
+                Interested in the Master Piece? <span className="font-semibold">Buy Now</span>
+              </p>
+              <button className="cormorant-garamond-font-light shadow-lg bg-transparent hover:bg-jj-cream text-black/70 border border-black/60 hover:border-transparent px-12 py-3 transition-all duration-300 text-2xl tracking-wide w-full">
+                Book an Appointment Now
+              </button>
             </div>
-            
-            <button className="cormorant-garamond-font-light shadow-lg bg-transparent hover:bg-jj-cream text-black/70 border border-black/60 hover:border-transparent px-8 py-3 transition-all duration-300 text-2xl tracking-wide w-full">Book an Appointment Now</button>
           </div>
         </div>
       </section>

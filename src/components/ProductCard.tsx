@@ -24,7 +24,7 @@ const ProductCard = ({ _id, title, image, brand, price, key }: ProductCardProps)
       <div className="text-center space-y-2">
         <h4 className="font-serif text-sm text-jj-brown">{brand}</h4>
         <h3 className="font-serif text-lg text-jj-darkbrown">{title}</h3>
-        {price && <p className="font-serif text-sm text-jj-brown">${price}</p>}
+        {/* {price && <p className="font-serif text-sm text-jj-brown">${price}</p>} */}
 
         <Link to={`/product/${id}`}>
           <button className="btn-primary mt-2">Enquire Now</button>

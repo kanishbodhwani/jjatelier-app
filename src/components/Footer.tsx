@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="bg-color-light-brown py-12">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative grid grid-cols-1 md:grid-cols-4 gap-8 items-center">
+        <div className="relative grid grid-cols-1 md:grid-cols-4 gap-8 items-top">
           {/* Logo and tagline */}
           <div className="flex flex-col items-center md:items-center">
             <img src="/images/jjlogo.png" alt="JJ Logo" className="h-[184px] w-[184px]" />

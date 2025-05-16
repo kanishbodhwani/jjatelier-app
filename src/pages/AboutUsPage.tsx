@@ -26,6 +26,9 @@ const AboutUsPage = () => {
       <section className="py-16 bg-white">
         <div className="container-custom text-center max-w-4xl">
           <h2 className="section-title">We Draft Emotions and<br />Stitch Memories.</h2>
+          <p className="corsorant-infant-font-light text-black/70 text-center text-2xl ml-4">
+            Every silhouette we craft is more than fabric — it’s a whisper of memory, a sculpture of emotion, a story waiting to be worn. At Jateen & Jasmeet, couture is not a garment. It’s a feeling, tailored.
+          </p>
         </div>
       </section>
       
@@ -40,20 +43,21 @@ const AboutUsPage = () => {
             />
             <div>
               <h2 className="corsorant-infant-font-regular text-6xl mb-6 text-jj-darkbrown text-center">Where we Started From</h2>
-              <p className="corsorant-infant-font-light text-black/60 text-center text-2xl ml-4">
-                Where we Started From The Rich Black Sherwani Set exudes timeless sophistication, adorned with intricate resham threadwork and antique gold metallic embroidery. Enhanced with sequin work, beads, and detailed kasab embroidery, this sherwani offers a perfect blend of classic elegance and fine craftsmanship. Where we Started From The Rich Black Sherwani Set exudes timeless sophistication, adorned with intricate resham threadwork and antique gold metallic embroidery. Enhanced with sequin work, beads, and detailed kasab embroidery, this sherwani offers a perfect blend of classic elegance and fine craftsmanship. Where we Started From The Rich Black Sherwani Set exudes timeless sophistication, adorned with intricate resham threadwork and antique gold metallic embroidery. The Rich Black Sherwani Set exudes timeless sophistication, adorned with intricate resham threadwork and antique gold metallic embroidery.The Rich Black Sherwani Set exudes timeless sophistication, adorned with intricate resham threadwork and antique gold metallic embroidery.
+              <p className="corsorant-infant-font-light text-black/70 text-center text-2xl ml-4">
+                From an intimate atelier to a canvas of evocative silhouettes—our journey unfolds through couture that breathes memory, movement, and meaning. Every stitch is a narrative, weaving artistry into timeless form.
+                Each piece in our debut collection Aarambh is a testament to our roots in craftsmanship — marrying heritage techniques with sculpted modernity. From hand-draped silks to our signature print embroidery, we design not for the moment, but for the soul that carries it.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-white w-[80%] mx-auto">
+      {/* <section className="py-16 bg-white w-[80%] mx-auto">
         <h2 className="corsorant-infant-font-regular text-6xl mb-6 text-jj-darkbrown text-center">Where we Started From</h2>
-        <p className="corsorant-infant-font-light text-black/60 text-center text-2xl ml-4">
+        <p className="corsorant-infant-font-light text-black/70 text-center text-2xl ml-4">
           Where we Started From The Rich Black Sherwani Set exudes timeless sophistication, adorned with intricate resham threadwork and antique gold metallic embroidery. Enhanced with sequin work, beads, and detailed kasab embroidery, this sherwani offers a perfect blend of classic elegance and fine craftsmanship. Where we Started From The Rich Black Sherwani Set exudes timeless sophistication, adorned with intricate resham threadwork and antique gold metallic embroidery. Enhanced with sequin work, beads, and detailed kasab embroidery, this sherwani offers a perfect blend of classic elegance and fine craftsmanship. Where we Started From The Rich Black Sherwani Set exudes timeless sophistication, adorned with intricate resham threadwork and antique gold metallic embroidery.
         </p>
-      </section>
+      </section> */}
       
       {/* Founder's Note */}
       <section className="py-16 bg-white border-t border-gray-100">
@@ -61,8 +65,10 @@ const AboutUsPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="corsorant-infant-font-regular text-6xl mb-6 text-jj-darkbrown text-center mb-20">From The Founder's Pen</h2>
-              <p className="corsorant-infant-font-light text-black/60 text-center text-2xl">
-                Where we Started From The Rich Black Sherwani Set exudes timeless sophistication, adorned with intricate resham threadwork and antique gold metallic embroidery. Enhanced with sequin work, beads, and detailed kasab embroidery, this sherwani offers a perfect blend of classic elegance and fine craftsmanship. Where we Started From The Rich Black Sherwani Set exudes timeless sophistication, adorned with intricate resham threadwork and antique gold metallic embroidery. Enhanced with sequin work, beads, and detailed kasab embroidery, this sherwani offers a perfect blend of classic elegance and fine craftsmanship. Where we Started From The Rich Black Sherwani Set exudes timeless sophistication, adorned with intricate resham threadwork and antique gold metallic embroidery.
+              <p className="corsorant-infant-font-light text-black/70 text-center text-2xl">
+              “We didn’t start with a label — we began with an instinct to design stories. What we wear holds memory, and memory deserves care, structure, and emotion. Jateen & Jasmeet is a journey of form and feeling — of telling tales through thread and time.”
+              <br />— Jateen & Jasmeet
+              <br />Founders & Creators
               </p>
             </div>
             
@@ -124,7 +130,7 @@ const AboutUsPage = () => {
       </section>
       
       {/* Book an Appointment */}
-      <section className="py-16 bg-white border-t border-gray-100">
+      <section id="book-appointment" className="py-16 bg-white border-t border-gray-100">
         <div className="container-custom max-w-4xl">
           <div className="text-center mb-12">
             <h3 className="corsorant-infant-font font-color-light-black text-3xl mb-2 tracting-wider">Explore Our Bespoke Collection</h3>
