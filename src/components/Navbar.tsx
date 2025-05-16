@@ -99,7 +99,13 @@ const Navbar = () => {
                 }}
                 className="block w-full"
               >
-                <button className="playfair-display-font-regular bg-transparent hover:bg-jj-cream text-jj-darkbrown border border-black/60 hover:border-transparent px-6 py-3 transition-all duration-300 text-md tracking-wide w-full">
+                <button 
+                  onClick={() => {
+                    const section = document.getElementById('book-appointment');
+                    section?.scrollIntoView({ behavior: 'smooth' });
+                    setIsMenuOpen(false);
+                  }} 
+                  className="playfair-display-font-regular bg-transparent hover:bg-jj-cream text-jj-darkbrown border border-black/60 hover:border-transparent px-6 py-3 transition-all duration-300 text-md tracking-wide w-full">
                   Book an Appointment
                 </button>
               </Link>

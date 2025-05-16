@@ -137,7 +137,12 @@ const ProductPage = () => {
               <p className="cormorant-garamond-font-light text-black/70 text-xl mb-4">
                 Interested in the Master Piece? <span className="font-semibold">Buy Now</span>
               </p>
-              <button className="cormorant-garamond-font-light shadow-lg bg-transparent hover:bg-jj-cream text-black/70 border border-black/60 hover:border-transparent px-12 py-3 transition-all duration-300 text-2xl tracking-wide w-full">
+              <button 
+                onClick={() => {
+                  const section = document.getElementById('book-appointment');
+                  section?.scrollIntoView({ behavior: 'smooth' });
+                }} 
+                className="cormorant-garamond-font-light shadow-lg bg-transparent hover:bg-jj-cream text-black/70 border border-black/60 hover:border-transparent px-12 py-3 transition-all duration-300 text-2xl tracking-wide w-full">
                 Book an Appointment Now
               </button>
             </div>
@@ -297,7 +302,7 @@ const ProductPage = () => {
       </section>
 
       {/* Appointment Form */}
-      <section className="py-16 bg-white border-t border-gray-100">
+      <section id="book-appointment" className="py-16 bg-white border-t border-gray-100">
         <div className="container-custom max-w-4xl">
           <div className="text-center mb-12">
             <h3 className="corsorant-infant-font text-3xl mb-2 tracking-wider text-jj-brown">
