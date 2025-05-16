@@ -1,16 +1,133 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Search } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { fetchProducts } from '@/services/api';
+import { X } from 'lucide-react';
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [allProducts, setAllProducts] = useState([]);
   const isMobile = useIsMobile();
+
+  useEffect(() => {
+    const loadProducts = async () => {
+      try {
+        setIsLoading(true);
+        const { data } = await fetchProducts();
+        setAllProducts(data);
+      } catch (error) {
+        console.error('Failed to load products:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    loadProducts();
+  }, []);
+
+  // Debounced search function
+  const debouncedSearch = useCallback(() => {
+    if (!searchQuery.trim()) {
+      setSearchResults([]);
+      return;
+    }
+
+    const results = allProducts.filter(product =>
+      product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      product.description.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    
+    setSearchResults(results);
+  }, [searchQuery, allProducts]);
+
+  // Debounce effect
+  useEffect(() => {
+    const handler = setTimeout(debouncedSearch, 300);
+    return () => clearTimeout(handler);
+  }, [searchQuery, debouncedSearch]);
+
+  const handleSearchInput = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const handleSuggestionClick = (productId) => {
+    navigate(`/product/${productId}`);
+    closeSearch();
+  };
+
+  const closeSearch = () => {
+    setIsSearchOpen(false);
+    setSearchQuery('');
+    setSearchResults([]);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isSearchOpen) closeSearch();
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isSearchOpen]);
   
   return (
     <header className="py-4 bg-white border-b border-gray-100">
       <div className="container-custom">
         <div className="flex flex-col items-center">
+          {isSearchOpen && (
+            <div className="fixed inset-0 bg-white z-[9999]">
+              <div className="container-custom pt-4">
+                <div className="flex items-center gap-4">
+                  <input
+                    type="text"
+                    placeholder="Search products..."
+                    className="flex-1 p-4 border-b border-gray-300 text-lg focus:outline-none"
+                    value={searchQuery}
+                    onChange={handleSearchInput}
+                    autoFocus
+                  />
+                  <button onClick={closeSearch} className="p-2">
+                    <X size={24} />
+                  </button>
+                </div>
+
+                <div className="max-h-[60vh] overflow-y-auto">
+                  {isLoading ? (
+                    <div className="p-4 text-gray-500">Loading products...</div>
+                  ) : searchResults.length > 0 ? (
+                    searchResults.map((product) => (
+                      <button
+                        key={product._id}
+                        onClick={() => handleSuggestionClick(product._id)}
+                        className="block w-full text-left p-4 hover:bg-gray-50 border-b transition-colors"
+                      >
+                        <h3 className="font-medium text-jj-darkbrown">
+                          {product.name}
+                        </h3>
+                        <p className="text-gray-600 truncate">
+                          {product.description}
+                        </p>
+                        <span className="text-sm text-jj-brown mt-1">
+                          ${product.price.toFixed(2)}
+                        </span>
+                      </button>
+                    ))
+                  ) : searchQuery ? (
+                    <div className="p-4 text-gray-500">
+                      No products found for "{searchQuery}"
+                    </div>
+                  ) : null}
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Logo centered at the top */}
           <div className="flex justify-between items-center w-full mb-4">
             <div className="flex-1" />
@@ -54,7 +171,7 @@ const Navbar = () => {
               <Link to="/jj-atelier" className="playfair-display-font text-md tracking-wide hover:text-jj-brown transition-colors">JJ Atelier</Link>
               <Link to="/about-us" className="playfair-display-font text-md tracking-wide hover:text-jj-brown transition-colors">About Us</Link>
               <Link to="/contact-us" className="playfair-display-font text-md tracking-wide hover:text-jj-brown transition-colors">Contact Us</Link>
-              <button className="text-gray-800 hover:text-jj-brown transition-colors">
+              <button onClick={() => setIsSearchOpen(true)} className="text-gray-800 hover:text-jj-brown transition-colors">
                 <Search size={20} />
               </button>
             </div>
@@ -83,8 +200,11 @@ const Navbar = () => {
             <Link to="/contact-us" className="playfair-display-font text-lg tracking-wide hover:text-jj-brown transition-colors py-2" onClick={() => setIsMenuOpen(false)}>
               Contact Us
             </Link>
-            <div className="flex items-center py-4">
-              <button className="text-gray-800 hover:text-jj-brown transition-colors" onClick={() => setIsMenuOpen(false)}>
+            <div className="flex items-center py-4" onClick={() => {
+              setIsSearchOpen(true);
+              setIsMenuOpen(false);
+            }}>
+              <button className="text-gray-800 hover:text-jj-brown transition-colors" >
                 <Search size={24} />
               </button>
               <span className="ml-4 text-gray-600">Search</span>

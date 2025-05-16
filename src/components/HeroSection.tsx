@@ -22,7 +22,7 @@ const HeroSection = ({
   return (
     <section className={`hero-container ${small ? 'h-[55vh]' : 'h-[75vh]'} overflow-hidden`}>
       <div 
-        className="hero-bg animate-zoom-in "
+        className="hero-bg animate-zoom-in"
         style={{ 
           backgroundImage: `url(${backgroundImage})`,
           animation: 'zoom-in 1.5s ease-out forwards'

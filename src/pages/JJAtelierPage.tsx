@@ -48,17 +48,17 @@ const JJAtelierPage = () => {
         <div className="container-custom">
           <h2 className="section-title jj-section-title">Featured Collection by <b>JJ Atelier</b></h2>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
             {products.map(product => (
               <ProductCard key={product._id} _id={product._id} title={product.name} image={product.images[0]} brand={"JJ Atelier"} price={product.price} />
             ))}
           </div>
           
-          <div className="flex justify-center mt-12">
+          {/* <div className="flex justify-center mt-12">
             <button className="btn-primary">
               View More
             </button>
-          </div>
+          </div> */}
         </div>
       </section>
       

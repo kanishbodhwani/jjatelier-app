@@ -74,9 +74,9 @@ const ProductPage = () => {
       <section className="py-16 bg-white">
         <div className="container-custom grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Left - Gallery */}
-          <div className="flex flex-col md:flex-row items-start gap-6">
+          <div className="flex flex-col md:flex-row items-start gap-4 w-full overflow-hidden">
             {/* Thumbnails */}
-            <div className="flex md:flex-col gap-4">
+            <div className="flex md:flex-col gap-4 overflow-x-auto w-full md:w-auto">
               {product.images.map((img: string, index: number) => (
                 <img
                   key={index}

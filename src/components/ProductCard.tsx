@@ -17,7 +17,7 @@ const ProductCard = ({ _id, title, image, brand, price, key }: ProductCardProps)
         <img 
           src={image} 
           alt={title} 
-          className="w-full h-[420px] object-cover hover:scale-105 transition-transform duration-500"
+          className="w-full object-cover hover:scale-105 transition-transform duration-500"
         />
       </div>
       

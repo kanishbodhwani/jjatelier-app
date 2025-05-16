@@ -44,10 +44,10 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="absolute bottom-0 right-20 flex space-x-3">
-            <img src="/images/insta.png" alt="Instagram" className="h-10 w-10" />
-            <img src="/images/facebook.png" alt="Facebook" className="h-10 w-10" />
-            <img src="/images/mail.png" alt="Twitter" className="h-10 w-10" />
+          <div className="absolute flex space-x-3 md:right-20 md:bottom-0 right-[28%] bottom-[-45px] hover:cursor-pointer">
+            <img onClick={() => window.open('https://www.instagram.com/jateenandjasmeet?igsh=eGx4OWNiY3lwcHBt')} src="/images/insta.png" alt="Instagram" className="h-10 w-10" />
+            <img onClick={() => window.open('https://www.facebook.com/profile.php?id=61572684125333')} src="/images/facebook.png" alt="Facebook" className="h-10 w-10" />
+            <img onClick={() => window.open('mailto:Jateenjasmeet@gmail.com')} src="/images/mail.png" alt="Twitter" className="h-10 w-10" />
           </div>
         </div>
         
