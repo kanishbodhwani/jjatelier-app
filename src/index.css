@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300..700;1,300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 20 14.3% 4.1%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 20 14.3% 4.1%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14.3% 4.1%;
+
+    --primary: 24 9.8% 10%;
+    --primary-foreground: 60 9.1% 97.8%;
+
+    --secondary: 60 4.8% 95.9%;
+    --secondary-foreground: 24 9.8% 10%;
+
+    --muted: 60 4.8% 95.9%;
+    --muted-foreground: 25 5.3% 44.7%;
+
+    --accent: 60 4.8% 95.9%;
+    --accent-foreground: 24 9.8% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9.1% 97.8%;
+
+    --border: 20 5.9% 90%;
+    --input: 20 5.9% 90%;
+    --ring: 20 14.3% 4.1%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.corsorant-infant-font-light {
+  font-family: "Cormorant Infant", serif;
+  font-weight: 300;
+}
+
+.corsorant-infant-font-regular {
+  font-family: "Cormorant Infant", serif;
+  font-weight: 400;
+}
+
+.corsorant-infant-font {
+  font-family: "Cormorant Infant", serif;
+  font-weight: 500;
+}
+
+.corsorant-infant-font-semibold {
+  font-family: "Cormorant Infant", serif;
+  font-weight: 600;
+}
+
+.cormorant-sc-font-light {
+  font-family: "Cormorant SC", serif;
+  font-weight: 300;
+}
+
+.cormorant-sc-font-regular {
+  font-family: "Cormorant SC", serif;
+  font-weight: 400;
+}
+
+.cormorant-sc-font {
+  font-family: "Cormorant SC", serif;
+  font-weight: 500;
+}
+
+.cormorant-sc-font-semibold {
+  font-family: "Cormorant SC", serif;
+  font-weight: 600;
+}
+
+.corsorant-sc-font-bold {
+  font-family: "Cormorant SC", serif;
+  font-weight: 700;
+}
+
+.cormorant-garamond-font-light {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+}
+
+.cormorant-upright-font-regular {
+  font-family: "Cormorant Upright", serif;
+  font-weight: 400;
+}
+
+.cormorant-upright-font-semibold {
+  font-family: "Cormorant Upright", serif;
+  font-weight: 600;
+}
+
+.playfair-display-font-regular {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+
+.playfair-display-font {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+}
+
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.font-color-light-brown {
+  color: #65242450;
+}
+
+.font-color-light-black {
+  color: #AEAEAE;
+}
+
+.font-color-grey {
+  color: #333333;
+}
+
+.bg-color-light-brown {
+  background-color: #CBBD93;
+}
+
+.button-primary {
+  background-color: #4C0D13 !important;
+  color: #fff !important;
+  font-family: "Cormorant Upright", serif !important;
+  font-weight: 600 !important;
+  letter-spacing: -6% !important;
+  text-transform: unset !important;
+  @apply px-16 py-4 text-xl tracking-tight !important;
+}
+
+.nav-button {
+  font-family: "Playfair Display", serif !important;
+  font-optical-sizing: auto !important;
+  font-weight: 400 !important;
+
+}
+
+.btn-primary {
+  @apply bg-transparent hover:bg-jj-cream text-jj-darkbrown border border-jj-brown/30 hover:border-transparent px-6 py-2 transition-all duration-300 text-sm font-sans uppercase tracking-wider;
+}
+
+.btn-primary-light {
+  @apply bg-transparent border hover:bg-jj-cream border-white text-white hover:text-jj-darkbrown hover:border-transparent px-14 py-4 transition-all duration-300 text-3xl tracking-tight cormorant-garamond-font-light;
+}
+
+.input-field {
+  @apply w-full p-3 border border-gray-200 focus:outline-none focus:ring-1 focus:ring-jj-cream bg-white shadow-sm;
+}
+
+.section-title {
+  @apply text-4xl md:text-6xl cormorant-sc-font-regular font-normal text-center mb-12 tracking-wider;
+}
+
+.jj-section-title {
+  @apply md:text-4xl text-3xl !important;
+}
+
+.hero-container {
+  @apply flex flex-col justify-center items-center relative;
+}
+
+.hero-bg {
+  @apply absolute inset-0 w-full h-full bg-center bg-cover -z-10;
+}
+
+.footer {
+  @apply bg-jj-cream border-t border-jj-brown/10 py-10;
+}
+
+@keyframes zoom-in {
+  from {
+    transform: scale(1.05);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-zoom-in {
+  animation: zoom-in 1.5s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 1s ease-out forwards;
+}
+
+.animate-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animate-delay-500 {
+  animation-delay: 500ms;
+}
+
+.animate-delay-700 {
+  animation-delay: 700ms;
+}
