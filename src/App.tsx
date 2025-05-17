@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -19,8 +18,34 @@ import HeroSection from "./components/HeroSection";
 
 const queryClient = new QueryClient();
 
+const criticalImages = [
+  '/images/front-page.png',
+  '/images/jjlogo.png',
+  '/images/hero.jpg.jpg',
+  '/images/hero-aboutus.png',
+  '/images/hero-jj.png',
+  '/images/hero-contactus.png'
+];
+
+const ImagePreloader = () => {
+  useEffect(() => {
+    criticalImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
+  return null;
+};
+
 const App = () => {
   const [isFrontPage, setIsFrontPage] = useState(true);
+  const [isExiting, setIsExiting] = useState(false);
+
+  const handleShopClick = () => {
+    setIsExiting(true);
+  };
+
   useEffect(() => {
     const lenis = new Lenis({
       lerp: 0.1,
@@ -39,17 +64,18 @@ const App = () => {
     return () => {
       lenis.destroy()
     }
-  }, [])
+  }, []);
 
 
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
+        <ImagePreloader />
         <Toaster />
         <Sonner />
         <BrowserRouter>
           <div className="flex flex-col min-h-screen">
-          {isFrontPage ? (
+          {(isFrontPage || isExiting) ? (
               <HeroSection
                 backgroundImage="/images/front-page.png"
                 title="WORLD OF JJ"
@@ -58,6 +84,8 @@ const App = () => {
                 buttonLink="#"
                 bigHeader={true}
                 onClickButton={() => setIsFrontPage(false)}
+                onAnimationEnd={() => isExiting && setIsFrontPage(false)}
+                isExiting={isExiting}
               />
             ) : (
               <>
@@ -82,4 +110,5 @@ const App = () => {
     </QueryClientProvider>
   );
 }
+
 export default App;

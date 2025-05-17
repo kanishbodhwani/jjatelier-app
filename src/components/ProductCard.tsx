@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import {LazyImage} from '@/components/LazyLoad';
 
 interface ProductCardProps {
   key?: string;
@@ -14,7 +15,7 @@ const ProductCard = ({ _id, title, image, brand, price, key }: ProductCardProps)
   return (
     <div key={key} className="flex flex-col">
       <div className="overflow-hidden mb-4">
-        <img 
+        <LazyImage 
           src={image} 
           alt={title} 
           className="w-full object-cover hover:scale-105 transition-transform duration-500"

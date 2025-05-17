@@ -1,7 +1,7 @@
 import HeroSection from '../components/HeroSection';
 import AppointmentForm from '../components/AppointmentForm';
+import { LazyImage } from '@/components/LazyLoad';
 
-// Placeholder image - replace with actual image
 const heroImage = '/images/hero-contactus.jpg';
 
 const ContactUsPage = () => {
@@ -60,40 +60,40 @@ const ContactUsPage = () => {
             </div>
             
             {/* Right side - Images grid */}
-            <div className="relative grid grid-cols-12 grid-rows-6 gap-3 h-[600px]">
+            <div className="relative overflow-hidden grid grid-cols-12 grid-rows-6 gap-3 h-[600px]">
               {/* Top right image */}
-              <div className="absolute w-[271px] md:top-[120px] top-[100px] z-10">
-                <img 
+              <div className="absolute w-[200px] md:top-[200px] top-[100px] z-10">
+                <LazyImage 
                   src="/images/c1.png" 
                   alt="JJ Atelier Collection" 
-                  className="md:w-full md:h-full object-cover w-[60%] h-[60%]"
+                  className="md:w-full md:h-full object-cover"
                 />
               </div>
               
               {/* Bottom left big image */}
-              <div className="absolute w-[271px] left-[120px] md:top-[-80px] top-[-10px]">
-                <img 
+              <div className="absolute w-[200px] left-[120px] md:top-[80px] top-[-10px]">
+                <LazyImage 
                   src="/images/c2.png" 
                   alt="JJ Atelier Collection" 
-                  className="md:w-full md:h-full object-cover w-[60%] h-[60%]"
+                  className="md:w-full md:h-full object-cover"
                 />
               </div>
               
               {/* Right side image */}
-              <div className="absolute w-[271px] z-10 md:right-[-130px] right-[-100px] md:bottom-[200px] bottom-[100px]">
-                <img 
+              <div className="absolute w-[200px] z-10 md:right-[30px] right-[20px] md:bottom-[200px] bottom-[150px]">
+                <LazyImage 
                   src="/images/c3.png" 
                   alt="JJ Atelier Collection" 
-                  className="md:w-full md:h-full object-cover w-[60%] h-[60%]"
+                  className="md:w-full md:h-full object-cover"
                 />
               </div>
               
               {/* Bottom right detailed image */}
-              <div className="absolute w-[271px] z-10 md:right-[-20px] right-[0px] md:bottom-0 bottom-[-20px]">
-                <img 
+              <div className="absolute w-[200px] z-10 md:right-[140px] right-[150px] md:bottom-[40px] bottom-[0px]">
+                <LazyImage 
                   src="/images/c4.png" 
                   alt="JJ Atelier Collection Detail" 
-                  className="md:w-full md:h-full object-cover w-[60%] h-[60%]"
+                  className="md:w-full md:h-full object-cover"
                 />
               </div>
             </div>

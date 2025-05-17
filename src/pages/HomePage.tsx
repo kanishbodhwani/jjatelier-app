@@ -4,6 +4,7 @@ import HeroSection from '../components/HeroSection';
 import ProductCard from '../components/ProductCard';
 import AppointmentForm from '../components/AppointmentForm';
 import { fetchProducts } from '../services/api';
+import { LazyImage } from '../components/LazyLoad';
 
 const heroImage = '/images/hero.jpg';
 const secondaryImage = '/images/secondary.jpg';
@@ -89,14 +90,14 @@ const HomePage = () => {
         <div className="container-custom">
           <h2 className="section-title">Founder's Note</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <img 
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 justify-items-center">
+            <LazyImage 
               src={foundersImage} 
               alt="Founders of JJ Atelier" 
-              className="rounded-md shadow-lg h-[85%]"
+              className="rounded-md shadow-lg md:h-[85%] h-[60%]"
             />
             
-            <div>
+            <div className='md:mt-0 mt-[-30%]'>
               <h3 className="cormorant-sc-font-regular text-jj-darkbrown mb-6 text-center tracking-wider">
                 <p className='text-2xl md:text-5xl mb-6'>THE DESIGNERS:</p>
                 <p className='text-3xl md:text-[60px] mb-6'>JATEEN & JASMEET</p>

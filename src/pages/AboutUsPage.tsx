@@ -1,5 +1,6 @@
 import HeroSection from '../components/HeroSection';
 import AppointmentForm from '../components/AppointmentForm';
+import { LazyImage } from '@/components/LazyLoad';
 
 // Placeholder images - replace with actual images
 const heroImage = '/images/hero-aboutus.jpg';
@@ -36,7 +37,7 @@ const AboutUsPage = () => {
       <section className="py-16 bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <img 
+            <LazyImage 
               src={storyImage} 
               alt="Our Story" 
               className="rounded-md shadow-lg"
@@ -72,7 +73,7 @@ const AboutUsPage = () => {
               </p>
             </div>
             
-            <img 
+            <LazyImage 
               src={foundersImage} 
               alt="Founders of JJ Atelier" 
               className="rounded-md shadow-lg"
@@ -92,7 +93,7 @@ const AboutUsPage = () => {
           <div className="space-y-8">
             {/* Trust */}
             <div className="relative h-[300px] overflow-hidden w-screen ml-[calc(-50vw+50%)]">
-              <img 
+              <LazyImage 
                 src={detailImage1} 
                 alt="Trust" 
                 className="w-full h-full object-cover"
@@ -104,7 +105,7 @@ const AboutUsPage = () => {
             
             {/* Design */}
             <div className="relative h-[300px] overflow-hidden w-screen ml-[calc(-50vw+50%)]">
-              <img 
+              <LazyImage 
                 src={detailImage2} 
                 alt="Design" 
                 className="w-full h-full object-cover"
@@ -116,7 +117,7 @@ const AboutUsPage = () => {
             
             {/* Story */}
             <div className="relative h-[300px] overflow-hidden w-screen ml-[calc(-50vw+50%)]">
-              <img 
+              <LazyImage 
                 src={detailImage3} 
                 alt="Story" 
                 className="w-full h-full object-cover"
