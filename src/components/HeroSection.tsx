@@ -8,6 +8,7 @@ interface HeroSectionProps {
   buttonLink?: string;
   small?: boolean;
   bigHeader?: boolean;
+  onClickButton?: () => void;
 }
 
 const HeroSection = ({
@@ -17,10 +18,11 @@ const HeroSection = ({
   buttonText,
   buttonLink = '/jj-atelier',
   small = false,
-  bigHeader = false
+  bigHeader = false,
+  onClickButton
 }: HeroSectionProps) => {
   return (
-    <section className={`hero-container ${small ? 'h-[65vh]' : 'h-[80vh]'} overflow-hidden`}>
+    <section className={`hero-container ${small ? 'h-[65vh]' : onClickButton ? 'h-[100vh]' : 'h-[80vh]'} overflow-hidden`}>
       <div 
         className="hero-bg animate-zoom-in"
         style={{ 
@@ -43,7 +45,7 @@ const HeroSection = ({
         {buttonText && (
           <div className="opacity-0 animate-fade-in-up animate-delay-700">
             <Link to={buttonLink}>
-              <button className="btn-primary-light delay-200">
+              <button onClick={onClickButton} className={`btn-primary-light delay-200 ${onClickButton && 'rounded-full'}`}>
                 {buttonText}
               </button>
             </Link>

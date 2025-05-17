@@ -15,10 +15,12 @@ import ProductPage from "./pages/ProductPage";
 import NotFound from "./pages/NotFound";
 import AdminPage from "./pages/AdminPage";
 import Lenis from 'lenis'
+import HeroSection from "./components/HeroSection";
 
 const queryClient = new QueryClient();
 
 const App = () => {
+  const [isFrontPage, setIsFrontPage] = useState(true);
   useEffect(() => {
     const lenis = new Lenis({
       lerp: 0.1,
@@ -47,19 +49,33 @@ const App = () => {
         <Sonner />
         <BrowserRouter>
           <div className="flex flex-col min-h-screen">
-            <Navbar />
-            <main className="flex-grow">
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/jj-atelier" element={<JJAtelierPage />} />
-                <Route path="/about-us" element={<AboutUsPage />} />
-                <Route path="/contact-us" element={<ContactUsPage />} />
-                <Route path="/product/:id" element={<ProductPage />} />
-                <Route path="/admin-panel" element={<AdminPage />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </main>
-            <Footer />
+          {isFrontPage ? (
+              <HeroSection
+                backgroundImage="/images/front-page.png"
+                title="WORLD OF JJ"
+                subtitle="WELCOME TO THE"
+                buttonText="Shop Collection"
+                buttonLink="#"
+                bigHeader={true}
+                onClickButton={() => setIsFrontPage(false)}
+              />
+            ) : (
+              <>
+                <Navbar />
+                <main className="flex-grow">
+                  <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/jj-atelier" element={<JJAtelierPage />} />
+                    <Route path="/about-us" element={<AboutUsPage />} />
+                    <Route path="/contact-us" element={<ContactUsPage />} />
+                    <Route path="/product/:id" element={<ProductPage />} />
+                    <Route path="/admin-panel" element={<AdminPage />} />
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                <Footer />
+                </main>
+              </>
+            )}
           </div>
         </BrowserRouter>
       </TooltipProvider>
