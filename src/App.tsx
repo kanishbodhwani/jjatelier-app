@@ -14,10 +14,33 @@ import ContactUsPage from "./pages/ContactUsPage";
 import ProductPage from "./pages/ProductPage";
 import NotFound from "./pages/NotFound";
 import AdminPage from "./pages/AdminPage";
+import Lenis from 'lenis'
 
 const queryClient = new QueryClient();
 
-const App = () => (
+const App = () => {
+  useEffect(() => {
+    const lenis = new Lenis({
+      lerp: 0.1,
+      smoothWheel: true,
+      wheelMultiplier: 1.2,
+      touchMultiplier: 2,
+    })
+
+    const raf = (time: number) => {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+
+    return () => {
+      lenis.destroy()
+    }
+  }, [])
+
+
+  return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
@@ -42,4 +65,5 @@ const App = () => (
       </TooltipProvider>
     </QueryClientProvider>
   );
+}
 export default App;

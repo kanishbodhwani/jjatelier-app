@@ -7,7 +7,7 @@ import { fetchProducts } from '../services/api';
 
 const heroImage = '/images/hero.jpg';
 const secondaryImage = '/images/secondary.jpg';
-const foundersImage = '/images/founders.png';
+const foundersImage = '/images/founders.jpeg';
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
@@ -53,7 +53,7 @@ const HomePage = () => {
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white p-4">
           <h2 className="corsorant-infant-font-regular text-6xl mb-8 tracking-wider">A Sacred Space Of Creation.</h2>
           <Link to="/jj-atelier">
-            <button className="btn-primary-light bg-white/10 border-white/30 text-white hover:bg-white/80">
+            <button className="btn-primary-light bg-white/10 border-white/30 text-white hover:bg-white/80 delay-200">
               Enter the World of JJ
             </button>
           </Link>
@@ -65,11 +65,11 @@ const HomePage = () => {
         <div className="container-custom">
           <div className="text-center mb-12">
             <h3 className="corsorant-sc-font-bold text-5xl font-color-light-brown mb-2 tracking-tight">Featured Collection</h3>
-            <h2 className="corsorant-sc-font-bold text-8xl text-jj-darkbrown">Aarambh</h2>
+            <h2 className="corsorant-sc-font-bold text-6xl md:text-8xl text-jj-darkbrown">Aarambh</h2>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {products.map(product => (
+            {products.slice(0, 4).map(product => (
               <ProductCard key={product._id} _id={product._id} title={product.name} image={product.images[0]} brand={"JJ Atelier"} price={product.price} />
             ))}
           </div>
@@ -93,7 +93,7 @@ const HomePage = () => {
             <img 
               src={foundersImage} 
               alt="Founders of JJ Atelier" 
-              className="rounded-md shadow-lg"
+              className="rounded-md shadow-lg h-[85%]"
             />
             
             <div>
@@ -102,12 +102,10 @@ const HomePage = () => {
                 <p className='text-3xl md:text-[60px] mb-6'>JATEEN & JASMEET</p>
               </h3>
               
-              <p className="corsorant-infant-font-light text-black mb-4 text-center tracking-wider text-2xl mt-16 w-[84%] ml-12">
-                Jateen and Jasmeet, the creative minds behind the brand, bring a visionary approach to luxury fashion. With a deep-rooted passion for design and an unwavering commitment to craftsmanship, they redefine prêt couture with silhouettes that exude sophistication, modernity, and timeless appeal.
-              </p>
-              
-              <p className="corsorant-infant-font-light text-black text-center tracking-wider text-2xl w-[84%] ml-12">
-                Drawing from years of experience and an innate understanding of fabric, drape, and detailing, Jateen and Jasmeet create pieces that blend traditional artistry with contemporary sensibilities. Their design philosophy is centered on exclusivity, precision, and an effortless sense of style, making every creation a masterpiece tailored for the discerning elite.
+              <p className="corsorant-infant-font-light text-black mb-4 text-center tracking-wider text-xl mt-16 w-[84%] ml-8 md:ml-12">
+                Jateen and Jasmeet are not just designers — they are architects of emotion, storytellers in silhouette. With an instinct for form and an unwavering devotion to craft, they sculpt memories into movement, creating garments that transcend fashion and become lived expressions.
+                Their design language is rooted in heritage, yet refracted through a modern lens — where tradition meets precision, and fluidity meets form. Each piece is a quiet dialogue between structure and sentiment, tailored not just to fit, but to feel.
+                At Jateen & Jasmeet, the philosophy is rare yet resonant: design less, mean more. Every creation is for the few who wear emotion — not ensembles.
               </p>
             </div>
           </div>

@@ -20,7 +20,7 @@ const HeroSection = ({
   bigHeader = false
 }: HeroSectionProps) => {
   return (
-    <section className={`hero-container ${small ? 'h-[55vh]' : 'h-[75vh]'} overflow-hidden`}>
+    <section className={`hero-container ${small ? 'h-[65vh]' : 'h-[80vh]'} overflow-hidden`}>
       <div 
         className="hero-bg animate-zoom-in"
         style={{ 
@@ -43,7 +43,7 @@ const HeroSection = ({
         {buttonText && (
           <div className="opacity-0 animate-fade-in-up animate-delay-700">
             <Link to={buttonLink}>
-              <button className="btn-primary-light">
+              <button className="btn-primary-light delay-200">
                 {buttonText}
               </button>
             </Link>

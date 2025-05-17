@@ -62,38 +62,38 @@ const ContactUsPage = () => {
             {/* Right side - Images grid */}
             <div className="relative grid grid-cols-12 grid-rows-6 gap-3 h-[600px]">
               {/* Top right image */}
-              <div className="absolute w-[271px] top-[120px] z-10">
+              <div className="absolute w-[271px] md:top-[120px] top-[100px] z-10">
                 <img 
                   src="/images/c1.png" 
                   alt="JJ Atelier Collection" 
-                  className="w-full h-full object-cover"
+                  className="md:w-full md:h-full object-cover w-[60%] h-[60%]"
                 />
               </div>
               
               {/* Bottom left big image */}
-              <div className="absolute w-[271px] left-[120px] top-[-80px]">
+              <div className="absolute w-[271px] left-[120px] md:top-[-80px] top-[-10px]">
                 <img 
                   src="/images/c2.png" 
                   alt="JJ Atelier Collection" 
-                  className="w-full h-full object-cover"
+                  className="md:w-full md:h-full object-cover w-[60%] h-[60%]"
                 />
               </div>
               
               {/* Right side image */}
-              <div className="absolute w-[271px] z-10 right-[-130px] bottom-[200px]">
+              <div className="absolute w-[271px] z-10 md:right-[-130px] right-[-100px] md:bottom-[200px] bottom-[100px]">
                 <img 
                   src="/images/c3.png" 
                   alt="JJ Atelier Collection" 
-                  className="w-full h-full object-cover"
+                  className="md:w-full md:h-full object-cover w-[60%] h-[60%]"
                 />
               </div>
               
               {/* Bottom right detailed image */}
-              <div className="absolute w-[271px] z-10 right-[-20px] bottom-0">
+              <div className="absolute w-[271px] z-10 md:right-[-20px] right-[0px] md:bottom-0 bottom-[-20px]">
                 <img 
                   src="/images/c4.png" 
                   alt="JJ Atelier Collection Detail" 
-                  className="w-full h-full object-cover"
+                  className="md:w-full md:h-full object-cover w-[60%] h-[60%]"
                 />
               </div>
             </div>

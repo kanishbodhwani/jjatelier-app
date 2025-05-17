@@ -4,7 +4,7 @@ import AppointmentForm from '../components/AppointmentForm';
 // Placeholder images - replace with actual images
 const heroImage = '/images/hero-aboutus.jpg';
 const storyImage = '/images/story.png';
-const foundersImage = '/images/founders.png';
+const foundersImage = '/images/founders.jpeg';
 
 // Detail images
 const detailImage1 = '/images/detail1.png';
@@ -86,7 +86,7 @@ const AboutUsPage = () => {
         <div className="container-custom">
           <div className="text-center mb-16">
             <h3 className="corsorant-infant-font font-color-light-black text-6xl mb-2">What makes the</h3>
-            <h2 className="corsorant-infant-font text-8xl text-black">Difference?</h2>
+            <h2 className="corsorant-infant-font text-6xl md:text-8xl text-black">Difference?</h2>
           </div>
           
           <div className="space-y-8">
