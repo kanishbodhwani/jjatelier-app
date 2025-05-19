@@ -41,6 +41,21 @@ const ImagePreloader = () => {
 const App = () => {
   const [isFrontPage, setIsFrontPage] = useState(true);
   const [isExiting, setIsExiting] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      const isMobileDevice = window.matchMedia("(max-width: 768px)").matches;
+      setIsMobile(isMobileDevice);
+      if (isMobileDevice) {
+        setIsFrontPage(false);
+      }
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleShopClick = () => {
     setIsExiting(true);
@@ -75,7 +90,7 @@ const App = () => {
         <Sonner />
         <BrowserRouter>
           <div className="flex flex-col min-h-screen">
-          {(isFrontPage || isExiting) ? (
+          {!isMobile && (isFrontPage || isExiting) ? (
               <HeroSection
                 backgroundImage="/images/front-page.png"
                 title="WORLD OF JJ"
