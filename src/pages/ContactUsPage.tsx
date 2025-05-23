@@ -31,7 +31,7 @@ const ContactUsPage = () => {
               <div className="mb-10">
                 <h3 className="uppercase font-color-grey cormorant-sc-font-regular mb-4 text-5xl">DISCOVER US</h3>
                 <p className="corsorant-infant-font-light text-black/60 text-2xl">
-                  Rick is here to help you.<br />
+                  {/* Rick is here to help you.<br /> */}
                   Our experts are available to answer any questions you might have. We've got the answers.
                 </p>
               </div>
@@ -39,22 +39,21 @@ const ContactUsPage = () => {
               <div className="mb-10">
                 <h3 className="uppercase font-color-grey cormorant-sc-font-regular mb-4 text-4xl">VISIT US</h3>
                 <p className="corsorant-infant-font-light text-black/60 text-2xl">
-                  Office no. G-02, Building 1, Ground Floor, Dubai Media City - Dubai
+                  B-96 Mayapuri Phase 1 New Delhi 110064, DL, India
                 </p>
               </div>
               
               <div className="mb-10">
                 <h3 className="uppercase font-color-grey cormorant-sc-font-regular mb-4 text-4xl">EMAIL US</h3>
                 <p className="corsorant-infant-font-light text-black/60 text-2xl">
-                  rick@flick.com
+                  jateenjasmeet@gmail.com
                 </p>
               </div>
               
               <div>
                 <h3 className="uppercase font-color-grey cormorant-sc-font-regular mb-4 text-4xl">CALL US</h3>
                 <p className="corsorant-infant-font-light text-black/60 text-2xl">
-                  +971-4-576-9770<br />
-                  +971-55-983-7007
+                  +91 9625831118
                 </p>
               </div>
             </div>

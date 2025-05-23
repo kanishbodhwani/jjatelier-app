@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { toast } from 'sonner';
+import emailjs from '@emailjs/browser';
 
 const AppointmentForm = () => {
   const [formData, setFormData] = useState({
@@ -17,17 +18,31 @@ const AppointmentForm = () => {
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    toast.success('Your appointment request has been submitted!');
-    setFormData({
-      firstName: '',
-      lastName: '',
-      collectionName: '',
-      phoneNumber: '',
-      description: ''
+
+    const serviceId = 'your_service_id';
+    const templateId = 'your_template_id';
+    const userId = 'your_user_id';
+
+    emailjs.send(serviceId, templateId, {
+      ...formData,
+      to_email: 'jateenjasmeet@gmail.com'
+    }, userId)
+    .then(() => {
+      toast.success('Appointment submitted and email sent!');
+      setFormData({
+        firstName: '',
+        lastName: '',
+        collectionName: '',
+        phoneNumber: '',
+        description: ''
+      });
+    })
+    .catch(err => {
+      toast.error('Failed to send email');
+      console.error(err);
     });
   };
-  
+
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
