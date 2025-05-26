@@ -8,9 +8,9 @@ const storyImage = '/images/story.png';
 const foundersImage = '/images/founders.jpeg';
 
 // Detail images
-const detailImage1 = '/images/detail1.png';
+const detailImage1 = '/images/detail1.jpeg';
 const detailImage2 = '/images/detail2.jpg';
-const detailImage3 = '/images/detail3.png';
+const detailImage3 = '/images/detail3.jpeg';
 
 const AboutUsPage = () => {
   return (

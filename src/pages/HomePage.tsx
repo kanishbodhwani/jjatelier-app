@@ -91,13 +91,15 @@ const HomePage = () => {
           <h2 className="section-title">Founder's Note</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 justify-items-center">
-            <LazyImage 
-              src={foundersImage} 
-              alt="Founders of JJ Atelier" 
-              className="rounded-md shadow-lg md:h-[85%] h-[60%]"
-            />
+            <div className="w-full md:h-[600px] h-[500px]"> {/* Adjust these values as needed */}
+              <LazyImage 
+                src={foundersImage} 
+                alt="Founders of JJ Atelier" 
+                className="rounded-md shadow-lg w-full h-full object-cover"
+              />
+            </div>
             
-            <div className='md:mt-0 mt-[-30%]'>
+            <div className='md:mt-0 transform md:transform-none'> 
               <h3 className="cormorant-sc-font-regular text-jj-darkbrown mb-6 text-center tracking-wider">
                 <p className='text-2xl md:text-5xl mb-6'>THE DESIGNERS:</p>
                 <p className='text-3xl md:text-[60px] mb-6'>JATEEN & JASMEET</p>
