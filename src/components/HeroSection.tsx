@@ -45,81 +45,65 @@ const HeroSection = ({
       clearTimeout(timeout);
       imageCache[backgroundImage] = true;
       setImageLoaded(true);
-      cleanup();
     };
 
     const handleError = () => {
       console.error('Failed to load hero image');
-      cleanup();
-    };
-
-    const cleanup = () => {
-      img.onload = null;
-      img.onerror = null;
       clearTimeout(timeout);
     };
 
     timeout = setTimeout(() => {
       console.warn('Image loading timed out');
-      cleanup();
-    }, 10000);
+      setImageLoaded(true);
+    }, 5000);
 
     img.src = backgroundImage;
     img.onload = handleLoad;
     img.onerror = handleError;
 
-    return cleanup;
+    return () => {
+      clearTimeout(timeout);
+      img.onload = null;
+      img.onerror = null;
+    };
   }, [backgroundImage]);
 
-  return (
-    <>
-      {!imageLoaded && (
-        <div className="fixed inset-0 bg-white flex items-center justify-center z-50 animate-fade-out">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
-        </div>
-      )}
 
-      <section 
-        className={`hero-container ${small ? 'h-[65vh]' : onClickButton ? 'h-[100vh]' : 'h-[80vh]'} overflow-hidden ${isExiting ? 'animate-frontpage-exit' : ''}`} 
-        onAnimationEnd={onAnimationEnd}
-        style={{ visibility: imageLoaded ? 'visible' : 'hidden' }}
+  return (
+    <section 
+      className={`hero-container ${small ? 'h-[65vh]' : onClickButton ? 'h-[100vh]' : 'h-[80vh]'} overflow-hidden ${isExiting ? 'animate-frontpage-exit' : ''}`} 
+      onAnimationEnd={onAnimationEnd}
+    >
+      <div 
+        className="hero-bg absolute inset-0 bg-cover bg-center transition-opacity duration-300"
+        style={{ 
+          backgroundImage: `url(${backgroundImage})`,
+          opacity: imageLoaded ? 1 : 0,
+        }}
       >
-        {imageLoaded && (
-          <>
-            <div 
-              className="hero-bg"
-              style={{ 
-                backgroundImage: `url(${backgroundImage})`,
-                opacity: 1,
-                transition: 'opacity 0.3s ease-in-out'
-              }}
-            >
-              <div className={`absolute inset-0 bg-black/30 ${isExiting ? 'animate-fade-out' : 'animate-fade-in'}`} />
-            </div>
-            
-            <div className="z-10 text-center px-4">
-              <h2 className={`cormorant-sc-font text-2xl ${small || bigHeader ? 'md:text-6xl' : 'md:text-4xl'}  ${isExiting ? 'animate-fade-out-up' : 'animate-fade-in-up'} text-white mb-4 opacity-0 animate-delay-300`}>
-                {subtitle}
-              </h2>
-              
-              <h1 className={`cormorant-sc-font text-5xl md:text-7xl text-white mb-8 opacity-0 ${isExiting ? 'animate-fade-out-up' : 'animate-fade-in-up'} animate-delay-500`}>
-                {title || "WORLD OF JJ"}
-              </h1>
-              
-              {buttonText && (
-                <div className={`opacity-0 animate-fade-in-up animate-delay-700 ${isExiting ? 'animate-fade-out' : 'animate-fade-in-up'}`}>
-                  <Link to={buttonLink}>
-                    <button onClick={onClickButton} className={`btn-primary-light delay-200 ${onClickButton && 'rounded-full'}`}>
-                      {buttonText}
-                    </button>
-                  </Link>
-                </div>
-              )}
-            </div>
-          </>
+        <div className={`absolute inset-0 bg-black/30 ${isExiting ? 'animate-fade-out' : 'animate-fade-in'}`} />
+      </div>
+      
+      <div className="relative z-10 text-center px-4 h-full flex flex-col justify-center">
+        <h2 className={`cormorant-sc-font text-2xl ${small || bigHeader ? 'md:text-6xl' : 'md:text-4xl'} text-white mb-4 transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}>
+          {subtitle}
+        </h2>
+        
+        <h1 className={`cormorant-sc-font text-5xl md:text-7xl text-white mb-8 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}>
+          {title || "WORLD OF JJ"}
+        </h1>
+        
+        {buttonText && (
+          <div className={`transition-opacity duration-700 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}>
+            <Link to={buttonLink}>
+              <button onClick={onClickButton} className={`btn-primary-light ${onClickButton && 'rounded-full'}`}>
+                {buttonText}
+              </button>
+            </Link>
+          </div>
         )}
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 
